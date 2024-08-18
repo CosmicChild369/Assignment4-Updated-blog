@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('OIP(1).jpfif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+        .overlay {
+            background: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            color: #ecf0f1;
+            font-size: 2.5em;
+        }
+        p {
+            color: #bdc3c7;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .btn-home {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            color: #fff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+        }
+        .btn-home:hover {
+            background-color: #2ecc71;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>About Us</h1>
+        <p>Welcome to our blog for awakened and spiritual individuals. Here, we create a safe space for those seeking and sharing deep, hidden knowledge. Our content is designed to inspire spiritual growth, enlighten the mind, and uncover truths that are often veiled from the masses.</p>
+        <p>This platform encourages contributors to share their wisdom and experiences on topics that elevate consciousness and guide others on their spiritual journey. Whether it's ancient teachings, mystical practices, or personal awakening stories, this is a place for like-minded individuals to connect and expand their awareness.</p>
+        <a href="{% url 'blog-home' %}" class="btn-home">Return Home</a>
+    </div>
+</body>
+</html>

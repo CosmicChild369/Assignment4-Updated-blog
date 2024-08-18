@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ article.title }}</h1>
+
+<!-- Display article image if it exists -->
+{% if article.image %}
+    <img src="{{ article.image.url }}" alt="{{ article.title }}" class="img-fluid">
+{% endif %}
+
+<p>{{ article.content }}</p>
+<p><small>by {{ article.author }} on {{ article.created_at }}</small></p>
+
+<!-- Display total likes -->
+<p>Likes: {{ article.likes.count }}</p>
+
+{% if user.is_authenticated %}
+    <!-- Like/Unlike button -->
+    <form action="{% url 'like_article' article.pk %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">
+            {% if user in article.likes.all %}
+                Unlike
+            {% else %}
+                Like
+            {% endif %}
+        </button>
+    </form>
+    
+    <!-- Show Edit and Delete buttons only for the author -->
+    {% if user == article.author %}
+        <a href="{% url 'article_edit' article.pk %}" class="btn btn-primary">Edit</a>
+        <form action="{% url 'article_delete' article.pk %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    {% endif %}
+{% endif %}
+
+<hr>
+
+<h2>Comments</h2>
+<div class="list-group">
+    {% for comment in comments %}
+        <div class="list-group-item">
+            <p>{{ comment.content }}</p>
+            <small>by {{ comment.author }} on {{ comment.created_at }}</small>
+        </div>
+    {% endfor %}
+</div>
+
+{% if user.is_authenticated %}
+    <!-- Comment form -->
+    <form action="{% url 'article_detail' article.pk %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Add Comment</button>
+    </form>
+{% else %}
+    <p><a href="{% url 'login' %}">Log in</a> to leave a comment.</p>
+{% endif %}
+
+<!-- Add Home Button -->
+<a href="{% url 'blog-home' %}" class="btn btn-secondary">Home</a>
+
+{% endblock %}

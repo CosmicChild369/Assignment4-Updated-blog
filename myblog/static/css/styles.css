@@ -1,0 +1,76 @@
+body {
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.nav-link {
+    color: #fff !important;
+    font-size: 18px;
+}
+
+.container {
+    margin-top: 50px;
+    padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Arial Black', sans-serif;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+/* Animations */
+.animate-title {
+    animation: fadeInDown 2s ease-in-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
